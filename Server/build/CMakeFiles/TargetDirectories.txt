@@ -1,3 +1,0 @@
-/home/mint/Desktop/Projects/Secure-Chat-Application/Server/build/CMakeFiles/rebuild_cache.dir
-/home/mint/Desktop/Projects/Secure-Chat-Application/Server/build/CMakeFiles/edit_cache.dir
-/home/mint/Desktop/Projects/Secure-Chat-Application/Server/build/CMakeFiles/sha256.dir
