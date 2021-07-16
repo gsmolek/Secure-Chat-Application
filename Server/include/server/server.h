@@ -11,6 +11,7 @@
 #include <sys/wait.h>
 #include <signal.h>
 #include <string>
+#include <sha256.h>
 
 #define MAX_SIZE 256
 class Server

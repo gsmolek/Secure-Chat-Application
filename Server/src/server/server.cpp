@@ -3,7 +3,8 @@
 Server::Server(std::string port)
 {
     strncpy(port_array,port.c_str(),5);
-	Server::start_server();
+	//Server::start_server();
+    std::cout<<"\n ::: "<<Sha256::hash_value("OK")<<std::endl;
 }
 void sigchld_handler(int s)
 {
@@ -24,7 +25,7 @@ void* Server::get_in_addr(struct sockaddr *sa)
 
     return &(((struct sockaddr_in6*)sa)->sin6_addr);
 }
-int Server::reciev_controller()
+int Server::recive_controller()
 {
     
 }
