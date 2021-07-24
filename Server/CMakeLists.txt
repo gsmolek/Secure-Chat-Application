@@ -1,39 +1,18 @@
-#[[
 cmake_minimum_required(VERSION 3.0)
 project(Secure-Chat-Server-Application)
 
+FIND_PACKAGE( Boost 1.40 COMPONENTS program_options REQUIRED )
+add_subdirectory(lib/sha256)
+add_subdirectory(lib/rsa)
 
-set(LIBS src/sha256.cpp)
-set(SRCS src/server.cpp)
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
-add_library(sha256 ${LIBS})
-tar
+
+set(SRCS src/server/server.cpp)
 
 add_executable(
-	server
-	${SRCS}
+    server
+    ${SRCS}
 )
-target_include_directories(server PUBLIC include/)
-target_include_directories(sha256 PUBLIC include/)
-
-target_link_libraries(server sha256)
-]]
-# cmake_minimum_required(VERSION 3.0)
-# project(Secure-Chat-Server-Application)
-
-# set(SRCS src/rsa.cpp)
-
-# add_executable(
-# 	rsa
-# 	${SRCS}
-# )
-# target_include_directories(rsa PUBLIC include/)
-
-cmake_minimum_required(VERSION 3.0)
-project(Secure-Chat-Server-Application)
-
-add_subdirectory(lib/sha256)
-
-add_executable(server src/server/server.cpp)
 target_include_directories(server PRIVATE include/server/)
-target_link_libraries(server sha256)
+TARGET_LINK_LIBRARIES(server LINK_PUBLIC ${Boost_LIBRARIES} sha256 rsa)

@@ -1,0 +1,3 @@
+[submodule "Server/lib/rsa"]
+	path = Server/lib/rsa
+	url = https://github.com/gsmolek/rsa.git

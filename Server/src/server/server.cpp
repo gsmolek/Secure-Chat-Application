@@ -1,10 +1,10 @@
 #include "server.h"
-
+#include <rsa.h>
 Server::Server(std::string port)
 {
     strncpy(port_array,port.c_str(),5);
 	//Server::start_server();
-    std::cout<<"\n ::: "<<Sha256::hash_value("OK")<<std::endl;
+    std::cout<<"\n ::: "<<gsm::Sha256::hash_value("OK")<<std::endl;
 }
 void sigchld_handler(int s)
 {
@@ -117,7 +117,14 @@ void Server::start_server()
 }
 int main()
 {
+    //Server server("5555");
+    std::cout << "\n " << "main" << std::endl;
+    std::string test = "0x68656c6c6f20776f726c64";
+    Rsa rsa(1024);
+    std::string ciphertext = rsa.encrypt(test);
+    std::cout << "\n " << test << std::endl;
+    std::cout << "\n " << ciphertext << std::endl;
+    std::cout << "\n " << rsa.decrypt(ciphertext) << std::endl;
 
-    Server server("5555");
     return 0;
 }
